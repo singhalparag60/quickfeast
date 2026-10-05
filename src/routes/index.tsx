@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Bike, Leaf, ShieldCheck } from "lucide-react";
 
 import heroImage from "@/assets/quickfeast-hero.jpg";
+import { QuickFeastLogo } from "@/components/quickfeast-logo";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -38,7 +39,7 @@ function LandingPage() {
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
       <header className="border-b border-border/70 bg-background/90 backdrop-blur-xl">
         <nav aria-label="Primary navigation" className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
-          <Logo />
+          <QuickFeastLogo className="h-12 w-auto" />
           <div className="flex items-center gap-2">
             <span className="hidden text-sm text-muted-foreground sm:inline">Already have an account?</span>
             <Button asChild variant="ghost"><a href="/login">Log in</a></Button>
