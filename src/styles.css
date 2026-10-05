@@ -64,6 +64,7 @@
   --color-promo: var(--promo);
   --color-promo-foreground: var(--promo-foreground);
   --color-surface: var(--surface);
+  --color-brand-orange: var(--brand-orange);
 }
 
 :root {
@@ -90,6 +91,7 @@
   --promo: oklch(0.88 0.17 91);
   --promo-foreground: oklch(0.25 0.04 54);
   --surface: oklch(0.99 0.008 85);
+  --brand-orange: oklch(0.72 0.19 45);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -138,6 +140,7 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --brand-orange: oklch(0.72 0.19 45);
 }
 
 @layer base {
