@@ -11,3 +11,4 @@
 
 - Keep the public welcome content on `/`; customer marketplace UI lives separately at `/home` so the pre-login experience remains unchanged.
 - Keep customer UI and sample restaurant data in separate reusable modules; authentication remains unimplemented until a real session integration is requested.
+- Keep desktop sidebar expansion separate from mobile drawer visibility, with matching sidebar widths and main margins so navigation never covers customer content.
