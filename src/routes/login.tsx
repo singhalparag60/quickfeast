@@ -7,6 +7,10 @@ export const Route = createFileRoute("/login")({
     meta: [
       { title: "Log in — QuickFeast" },
       { name: "description", content: "Log in to your QuickFeast account." },
+      { property: "og:title", content: "Log in — QuickFeast" },
+      { property: "og:description", content: "Log in to your QuickFeast account." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: LoginPage,
