@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Correct the customer sidebar toggle, icon-only desktop rail, and responsive content sizing.
+- [x] Verify expanded/collapsed desktop and mobile navigation without overflow or console errors.
+
 - [x] Add a separate customer home with reusable app shell, search, navigation, and sample restaurant cards.
 - [x] Preserve the welcome page and auth placeholders; verify desktop/mobile rendering and interactions.
 
