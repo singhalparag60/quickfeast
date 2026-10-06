@@ -7,6 +7,10 @@ export const Route = createFileRoute("/signup")({
     meta: [
       { title: "Sign up — QuickFeast" },
       { name: "description", content: "Create a QuickFeast account to get your favorite food fast and hot." },
+      { property: "og:title", content: "Sign up — QuickFeast" },
+      { property: "og:description", content: "Create a QuickFeast account to get your favorite food fast and hot." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: SignupPage,

@@ -14,4 +14,11 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+
+  it("keeps the customer home separate from the public welcome and auth routes", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    for (const path of ["/", "/home", "/login", "/signup"]) {
+      expect(router.matchRoutes(path).at(-1)?.routeId).toBe(path);
+    }
+  });
 });
