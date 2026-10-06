@@ -20,7 +20,7 @@ describe("Customer navigation", () => {
     fireEvent.click(toggle);
     expect(sidebar).toHaveAttribute("data-expanded", "false");
     for (const name of ["Home", "Restaurants", "Orders", "Contact Us"]) {
-      fireEvent.click(screen.getByRole("button", { name, exact: true }));
+      fireEvent.click(screen.getByRole("button", { name }));
       expect(onNavigate).toHaveBeenLastCalledWith(name);
       expect(sidebar).toHaveAttribute("data-expanded", "false");
     }
@@ -31,11 +31,12 @@ describe("Customer navigation", () => {
   it("opens and closes the mobile drawer without changing desktop expansion", () => {
     const onNavigate = mount(false);
     const sidebar = document.getElementById("customer-navigation");
-    expect(screen.queryByRole("button", { name: "Orders", exact: true })).toBeNull();
+    expect(sidebar).toHaveAttribute("data-mobile-open", "false");
     fireEvent.click(screen.getByRole("button", { name: "Toggle navigation" }));
-    fireEvent.click(screen.getByRole("button", { name: "Orders", exact: true }));
+    expect(sidebar).toHaveAttribute("data-mobile-open", "true");
+    fireEvent.click(screen.getByRole("button", { name: "Orders" }));
     expect(onNavigate).toHaveBeenCalledWith("Orders");
-    expect(screen.queryByRole("button", { name: "Orders", exact: true })).toBeNull();
+    expect(sidebar).toHaveAttribute("data-mobile-open", "false");
     expect(sidebar).toHaveAttribute("data-expanded", "true");
   });
 });

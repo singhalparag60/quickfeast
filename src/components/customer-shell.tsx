@@ -45,7 +45,7 @@ export function CustomerShell({ children, activeView, onNavigate, customerId = "
         </div>
       </header>
       {mobileOpen && <div className="fixed inset-x-0 bottom-0 top-20 z-20 bg-foreground/30 lg:hidden" onClick={() => setMobileOpen(false)} aria-hidden="true" />}
-      <aside id="customer-navigation" aria-label="Customer navigation" data-expanded={sidebarExpanded} className={cn("fixed bottom-0 left-0 top-20 z-30 flex w-56 flex-col border-r border-border bg-card p-4 lg:translate-x-0", mobileOpen ? "translate-x-0" : "invisible -translate-x-full lg:visible", sidebarExpanded ? "lg:w-56" : "lg:w-18 lg:p-3")}>
+      <aside id="customer-navigation" aria-label="Customer navigation" data-expanded={sidebarExpanded} data-mobile-open={mobileOpen} className={cn("fixed bottom-0 left-0 top-20 z-30 flex w-56 flex-col border-r border-border bg-card p-4 lg:translate-x-0", mobileOpen ? "translate-x-0" : "invisible -translate-x-full lg:visible", sidebarExpanded ? "lg:w-56" : "lg:w-18 lg:p-3")}>
         <nav className="flex h-full flex-col gap-2">
           {navigation.map(({ label, icon: Icon }) => (
             <Button key={label} variant="ghost" aria-label={label} title={label} aria-current={activeView === label ? "page" : undefined} className={cn("h-12 shrink-0 justify-start gap-3 px-4 text-sm", !sidebarExpanded && "lg:justify-center lg:gap-0 lg:px-0", label === "Contact Us" && "mt-auto", activeView === label ? "bg-primary/10 font-bold text-primary hover:bg-primary/15 hover:text-primary" : "text-muted-foreground")} onClick={() => { onNavigate(label); setMobileOpen(false); }}>
