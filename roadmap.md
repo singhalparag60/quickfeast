@@ -1,7 +1,7 @@
 # Roadmap
 
-- [ ] Add a separate customer home with reusable app shell, search, navigation, and sample restaurant cards.
-- [ ] Preserve the welcome page and auth placeholders; verify desktop/mobile rendering and interactions.
+- [x] Add a separate customer home with reusable app shell, search, navigation, and sample restaurant cards.
+- [x] Preserve the welcome page and auth placeholders; verify desktop/mobile rendering and interactions.
 
 - [x] Diagnose why the published root page is blank.
 - [x] Apply the smallest safe entry-point fix so `/` renders QuickFeast.
