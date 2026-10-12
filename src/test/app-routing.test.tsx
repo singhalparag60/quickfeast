@@ -17,8 +17,14 @@ describe("App routing", () => {
 
   it("keeps the customer home separate from the public welcome and auth routes", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
-    for (const path of ["/", "/home", "/login", "/signup"]) {
+    for (const path of ["/", "/home", "/login", "/signup", "/cart", "/wishlist", "/orders"]) {
       expect(router.matchRoutes(path).at(-1)?.routeId).toBe(path);
     }
+  });
+
+  it("matches dynamic restaurant menu routes", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    const matches = router.matchRoutes("/restaurant/pizza-social");
+    expect(matches.at(-1)?.routeId).toBe("/restaurant/$restaurantId");
   });
 });

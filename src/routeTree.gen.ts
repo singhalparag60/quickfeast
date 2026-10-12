@@ -10,13 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CartRouteImport } from './routes/cart'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as RestaurantRestaurantIdRouteImport } from './routes/restaurant.$restaurantId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartRoute = CartRouteImport.update({
+  id: '/cart',
+  path: '/cart',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -29,44 +38,100 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantRestaurantIdRoute = RestaurantRestaurantIdRouteImport.update({
+  id: '/restaurant/$restaurantId',
+  path: '/restaurant/$restaurantId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cart': typeof CartRoute
   '/home': typeof HomeRoute
   '/login': typeof LoginRoute
+  '/orders': typeof OrdersRoute
   '/signup': typeof SignupRoute
+  '/wishlist': typeof WishlistRoute
+  '/restaurant/$restaurantId': typeof RestaurantRestaurantIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cart': typeof CartRoute
   '/home': typeof HomeRoute
   '/login': typeof LoginRoute
+  '/orders': typeof OrdersRoute
   '/signup': typeof SignupRoute
+  '/wishlist': typeof WishlistRoute
+  '/restaurant/$restaurantId': typeof RestaurantRestaurantIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cart': typeof CartRoute
   '/home': typeof HomeRoute
   '/login': typeof LoginRoute
+  '/orders': typeof OrdersRoute
   '/signup': typeof SignupRoute
+  '/wishlist': typeof WishlistRoute
+  '/restaurant/$restaurantId': typeof RestaurantRestaurantIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/login' | '/signup'
+  fullPaths:
+    | '/'
+    | '/cart'
+    | '/home'
+    | '/login'
+    | '/orders'
+    | '/signup'
+    | '/wishlist'
+    | '/restaurant/$restaurantId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/login' | '/signup'
-  id: '__root__' | '/' | '/home' | '/login' | '/signup'
+  to:
+    | '/'
+    | '/cart'
+    | '/home'
+    | '/login'
+    | '/orders'
+    | '/signup'
+    | '/wishlist'
+    | '/restaurant/$restaurantId'
+  id:
+    | '__root__'
+    | '/'
+    | '/cart'
+    | '/home'
+    | '/login'
+    | '/orders'
+    | '/signup'
+    | '/wishlist'
+    | '/restaurant/$restaurantId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CartRoute: typeof CartRoute
   HomeRoute: typeof HomeRoute
   LoginRoute: typeof LoginRoute
+  OrdersRoute: typeof OrdersRoute
   SignupRoute: typeof SignupRoute
+  WishlistRoute: typeof WishlistRoute
+  RestaurantRestaurantIdRoute: typeof RestaurantRestaurantIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -76,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cart': {
+      id: '/cart'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -92,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/signup': {
       id: '/signup'
       path: '/signup'
@@ -99,14 +178,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant/$restaurantId': {
+      id: '/restaurant/$restaurantId'
+      path: '/restaurant/$restaurantId'
+      fullPath: '/restaurant/$restaurantId'
+      preLoaderRoute: typeof RestaurantRestaurantIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CartRoute: CartRoute,
   HomeRoute: HomeRoute,
   LoginRoute: LoginRoute,
+  OrdersRoute: OrdersRoute,
   SignupRoute: SignupRoute,
+  WishlistRoute: WishlistRoute,
+  RestaurantRestaurantIdRoute: RestaurantRestaurantIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

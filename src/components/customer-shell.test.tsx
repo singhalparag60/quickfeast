@@ -19,7 +19,7 @@ describe("Customer navigation", () => {
     expect(sidebar).toHaveAttribute("data-expanded", "true");
     fireEvent.click(toggle);
     expect(sidebar).toHaveAttribute("data-expanded", "false");
-    for (const name of ["Home", "Restaurants", "Orders", "Contact Us"]) {
+    for (const name of ["Home", "Restaurants", "Cart", "Wishlist", "Orders", "Contact Us"]) {
       fireEvent.click(screen.getByRole("button", { name }));
       expect(onNavigate).toHaveBeenLastCalledWith(name);
       expect(sidebar).toHaveAttribute("data-expanded", "false");

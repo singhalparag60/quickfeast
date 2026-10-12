@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Bike, Leaf, ShieldCheck } from "lucide-react";
 
 import heroImage from "@/assets/quickfeast-hero.jpg";
@@ -42,8 +42,8 @@ function LandingPage() {
           <QuickFeastLogo className="h-12 w-auto" />
           <div className="flex items-center gap-2">
             <span className="hidden text-sm text-muted-foreground sm:inline">Already have an account?</span>
-            <Button asChild variant="ghost"><a href="/login">Log in</a></Button>
-            <Button asChild className="rounded-full"><a href="/signup">Sign Up</a></Button>
+            <Button asChild variant="ghost"><Link to="/login">Log in</Link></Button>
+            <Button asChild className="rounded-full"><Link to="/signup">Sign Up</Link></Button>
           </div>
         </nav>
       </header>
@@ -56,10 +56,10 @@ function LandingPage() {
             <p className="mt-6 text-lg text-muted-foreground sm:text-xl">Get your choice of food fast and hot. QuickFeast brings the meals you love from trusted local kitchens straight to your door.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="h-13 rounded-full px-8 text-base shadow-lg shadow-primary/20">
-                <a href="/signup">Get Started <ArrowRight /></a>
+                <Link to="/signup">Get Started <ArrowRight /></Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="h-13 rounded-full px-8 text-base">
-                <a href="/login">Log In</a>
+                <Link to="/login">Log In</Link>
               </Button>
             </div>
             <p className="mt-6 text-sm text-muted-foreground">Free to join. Order from your favorite local restaurants in minutes.</p>
